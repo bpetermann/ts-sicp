@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "ESNext",
+      "baseUrl": ".",
+      "esModuleInterop": true,
+      "noImplicitOverride": true,
+      "strictNullChecks": true,
+      "strictPropertyInitialization": true,
+      "resolveJsonModule": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "app"
+    },
+    "exclude": ["tests"],
+    "lib": ["es2015"]
+  }
+  
