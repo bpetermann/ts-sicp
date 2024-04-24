@@ -2,19 +2,20 @@
   "name": "ts-sicp",
   "version": "1.0.0",
   "description": "",
-  "main": "./app/index.js",
+  "main": "./app/1/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node ./app/index.js",
-    "build:start": "npm run build && npm start",
-    "bookmark": "npm run build && node ./app/bookmark.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p . -w",
+    "start": "nodemon ./app/1/index.js",
+    "dev": "nodemon ./app/1/index.js",
+    "bookmark": "npm run build && node ./app/bookmark.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
+    "nodemon": "^3.1.0",
+    "sicp": "^1.1.4",
     "simple-git": "^3.23.0",
     "typescript": "^5.4.3"
   },
