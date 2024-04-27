@@ -1,4 +1,4 @@
-test('1.1', () => {
+test("1.1", () => {
   expect(10).toEqual(10);
 
   expect(5 + 3 + 4).toEqual(12);
@@ -19,7 +19,7 @@ test('1.1', () => {
 
   expect(b > a && b < a * b ? b : a).toEqual(4);
 
-  expect((a as any) === 4 ? 6 : b === 4 ? 6 + 7 + a : 26).toEqual(16);
+  expect((a as number) === 4 ? 6 : b === 4 ? 6 + 7 + a : 26).toEqual(16);
 
   expect(2 + (b > a ? b : a)).toEqual(6);
 
