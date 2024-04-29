@@ -12,8 +12,10 @@ function f2_iter(a: number, b: number, c: number, n: number): number {
   return n === 0 ? a : f2_iter(b, c, c + 2 * b + 3 * a, n - 1)
 }
 
-test('1.11', () => {
-  Array.from({ length: 10 }, (_, i) => i + 1).forEach((i) => {
-    expect(f(i)).toEqual(f2(i))
+describe('1.11', () => {
+  test('Recursive and iterative process should produce the same result', () => {
+    Array.from({ length: 10 }, (_, i) => i + 1).forEach((i) => {
+      expect(f(i)).toEqual(f2(i))
+    })
   })
 })
