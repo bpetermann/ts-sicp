@@ -1,19 +1,19 @@
-import type { JestConfigWithTsJest } from 'ts-jest';
+import type { JestConfigWithTsJest } from 'ts-jest'
 
 const jestConfig: JestConfigWithTsJest = {
   roots: ['<rootDir>/src/1'],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^(\\.{1,2}/.*)\\.js$': '$1'
   },
   transform: {
     '^.+\\.tsx?$': [
       'ts-jest',
       {
-        useESM: true,
-      },
-    ],
-  },
-};
+        useESM: true
+      }
+    ]
+  }
+}
 
-export default jestConfig;
+export default jestConfig
