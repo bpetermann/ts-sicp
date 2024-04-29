@@ -2,7 +2,7 @@
   "name": "ts-sicp",
   "version": "1.0.0",
   "description": "",
-  "main": "./app/1/index.js",
+  "main": "./app/index.js",
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*.ts",

@@ -1,3 +1,3 @@
 ## SICP TS
 
-Repository that accompanies me in the study of "Structure and Interpretation of Computer Programs, JavaScript Edition"
+Repository to accompany me in my study of "Structure and Interpretation of Computer Programs, JavaScript Edition"
