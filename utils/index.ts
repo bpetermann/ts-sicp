@@ -9,3 +9,7 @@ export function cubed(x: number): number {
 export function abs(x: number): number {
   return Math.abs(x)
 }
+
+export function is_even(n: number): boolean {
+  return n % 2 === 0
+}

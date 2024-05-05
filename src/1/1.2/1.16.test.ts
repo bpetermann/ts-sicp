@@ -1,6 +1,4 @@
-function is_even(n: number): boolean {
-  return n % 2 === 0
-}
+import { is_even } from '../../../utils'
 
 function fast_expt(b: number, n: number): number {
   return fast_expt_iter(b, n, 1)
