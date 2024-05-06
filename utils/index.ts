@@ -60,3 +60,11 @@ export function math_floor(x: number): number {
 export function math_random(): number {
   return Math.random()
 }
+
+export function divides(a: number, b: number): boolean {
+  return b % a === 0
+}
+
+export function get_time(): number {
+  return Date.now()
+}
