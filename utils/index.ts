@@ -55,7 +55,7 @@ export function math_floor(x: number): number {
 }
 
 /**
-  Returns a pseudorandom number between 0 and 1.
+ * @returns Returns a pseudorandom number between 0 and 1.
  */
 export function math_random(): number {
   return Math.random()
@@ -65,6 +65,18 @@ export function divides(a: number, b: number): boolean {
   return b % a === 0
 }
 
+/**
+ * @returns Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).
+ */
 export function get_time(): number {
   return Date.now()
+}
+
+/**
+ * Returns the natural logarithm (base e) of a number.
+ * @param x — A numeric expression.
+ */
+
+export function math_log(x: number): number {
+  return Math.log(x)
 }
