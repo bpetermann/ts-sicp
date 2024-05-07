@@ -32,3 +32,5 @@ function report_prime(elapsed_time: number): void {
   display(' *** ')
   display(elapsed_time)
 }
+
+test('1.24', () => {})
