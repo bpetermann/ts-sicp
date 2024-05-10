@@ -1,6 +1,6 @@
 import { is_even, square } from '../../../utils'
 
-test('1.27', () => {
+test('Demonstrate that the Carmichael numbers really do fool the Fermat test.', () => {
   function expmod(base: number, exp: number, m: number): number {
     return exp === 0 ? 1 : is_even(exp) ? square(expmod(base, exp / 2, m)) % m : (base * expmod(base, exp - 1, m)) % m
   }
