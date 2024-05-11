@@ -80,3 +80,18 @@ export function get_time(): number {
 export function math_log(x: number): number {
   return Math.log(x)
 }
+
+/**
+ * Checks if a given number is  prime number.
+ * @param n — A numeric expression.
+ */
+export function is_prime(n: number): boolean {
+  function find_divisor(n: number, test_divisor: number): number {
+    return square(test_divisor) > n ? n : divides(test_divisor, n) ? test_divisor : find_divisor(n, test_divisor + 1)
+  }
+
+  function smallest_divisor(n: number): number {
+    return find_divisor(n, 2)
+  }
+  return n === smallest_divisor(n)
+}
