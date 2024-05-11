@@ -1,4 +1,4 @@
-import { abs } from '../../../utils'
+import { abs, ϕ } from '../../../utils'
 
 const tolerance = 0.00001
 
@@ -18,5 +18,5 @@ test('1.35', () => {
     return fixed_point((x) => 1 + 1 / x, 1)
   }
 
-  expect(golden_ratio()).toBeCloseTo(1.6180339887)
+  expect(golden_ratio()).toBeCloseTo(ϕ)
 })

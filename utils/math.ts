@@ -95,3 +95,5 @@ export function is_prime(n: number): boolean {
   }
   return n === smallest_divisor(n)
 }
+
+export const ϕ = 1.61803398875
