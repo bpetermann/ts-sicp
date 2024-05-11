@@ -11,8 +11,8 @@
     "watch": "tsc -p . -w",
     "start": "nodemon ./app/src/index.js",
     "dev": "nodemon ./app/src/index.js",
-    "bookmark": "npm run build && node ./app/bookmark.js",
-    "commit": "npm run build && node ./app/commit.js",
+    "bookmark": "npm run build && node ./app/utils/bookmark.js",
+    "commit": "npm run build && node ./app/utils/commit.js",
     "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "author": "",

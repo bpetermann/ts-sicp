@@ -4,14 +4,15 @@ import simpleGit from 'simple-git'
 
 const BASE_BOOK = 'https://sourceacademy.org/sicpjs/' as const
 
-const commit = () => {
-  simpleGit().add('./bookmark.txt').commit('Update bookmark 🔖'), () => console.log('done')
+const commit = (bookmark: string) => {
+  simpleGit().add('./to.txt').commit(`Update bookmark to ${bookmark} 🔖`).push('origin', 'main'),
+    () => console.log('done')
 }
 
 ;(async function () {
   if (process.argv[2]) {
     await fs.writeFile('bookmark.txt', process.argv[2])
-    commit()
+    commit(process.argv[2])
   } else {
     const current = await fs.readFile('bookmark.txt', { encoding: 'utf8' })
 
