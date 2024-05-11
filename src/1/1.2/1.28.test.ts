@@ -5,7 +5,7 @@ test('Miller-Rabin test.', () => {
     return math_floor(math_random() * n)
   }
 
-  function nontrivial_test(n: number, m: number): number {
+  function trivial_test(n: number, m: number): number {
     return n === 1 || n === m - 1 ? n : square(n) % m === 1 ? 0 : n
   }
 
@@ -13,7 +13,7 @@ test('Miller-Rabin test.', () => {
     return exp === 0
       ? 1
       : is_even(exp)
-        ? square(nontrivial_test(expmod(base, exp / 2, m), m)) % m
+        ? square(trivial_test(expmod(base, exp / 2, m), m)) % m
         : (base * expmod(base, exp - 1, m)) % m
   }
 
