@@ -5,7 +5,7 @@ import simpleGit from 'simple-git'
 const BASE_BOOK = 'https://sourceacademy.org/sicpjs/' as const
 
 const commit = (bookmark: string) => {
-  simpleGit().add('./to.txt').commit(`Update bookmark to ${bookmark} 🔖`).push('origin', 'main'),
+  simpleGit().add('./bookmark.txt').commit(`Update bookmark to ${bookmark} 🔖`).push('origin', 'main'),
     () => console.log('done')
 }
 
