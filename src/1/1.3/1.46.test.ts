@@ -4,11 +4,11 @@ function iterative_improve(
   good_enough: (x: number) => boolean,
   improve: (n: number) => number
 ): (guess: number) => number {
-  function try_it(guess: number): number {
-    return good_enough(guess) ? guess : try_it(improve(guess))
+  function iterate(guess: number): number {
+    return good_enough(guess) ? guess : iterate(improve(guess))
   }
 
-  return (guess: number) => try_it(guess)
+  return iterate
 }
 
 describe('1.46', () => {
