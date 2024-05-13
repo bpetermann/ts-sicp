@@ -8,6 +8,6 @@ function repeated(f: (n: number) => number, x: number): (y: number) => number {
   return (y: number) => repeat(x, y)
 }
 
-test('1.42', () => {
+test('1.43', () => {
   expect(repeated(square, 2)(5)).toEqual(625)
 })

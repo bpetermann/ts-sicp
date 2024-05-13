@@ -113,3 +113,7 @@ export function average(x: number, y: number): number {
 export function math_cos(x: number): number {
   return Math.cos(x)
 }
+
+export function math_log2(n: number): number {
+  return Math.log2(n)
+}
