@@ -1,3 +1,5 @@
+export const ϕ = 1.61803398875
+
 /**
   Return the square of a number
   @param x number to square
@@ -104,4 +106,10 @@ export function is_prime(n: number): boolean {
   return n === smallest_divisor(n)
 }
 
-export const ϕ = 1.61803398875
+export function average(x: number, y: number): number {
+  return (x + y) / 2
+}
+
+export function math_cos(x: number): number {
+  return Math.cos(x)
+}
