@@ -1,9 +1,7 @@
-function double<T extends (n: number) => number>(f: T): (n: number) => number {
-  return (x) => f(f(x))
-}
+import { inc } from '../../../utils'
 
-function inc(x: number): number {
-  return x + 1
+function double<T extends (n: number) => number>(f: T): (x: number) => ReturnType<T> {
+  return (x) => f(f(x)) as ReturnType<T>
 }
 
 test('1.41', () => {

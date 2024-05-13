@@ -15,6 +15,14 @@ export function cube(x: number): number {
 }
 
 /**
+    Returns the input incremented by one
+    @param x number to increment
+   */
+export function inc(x: number): number {
+  return x + 1
+}
+
+/**
     Returns the absolute value of a number (the value without regard to whether it is positive or negative). For example, the absolute value of -5 is the same as the absolute value of 5.
     @param x A numeric expression for which the absolute value is needed.
    */
