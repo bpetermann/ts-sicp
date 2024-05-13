@@ -1,4 +1,4 @@
-import { square, cubed, abs } from '../../../utils'
+import { square, cube, abs } from '../../../utils'
 
 function cube_root(x: number): number {
   return cube_root_iter(1, x)
@@ -9,7 +9,7 @@ function cube_root_iter(guess: number, x: number): number {
 }
 
 function is_good_enough(guess: number, x: number): boolean {
-  return abs(cubed(guess) - x) < 0.001
+  return abs(cube(guess) - x) < 0.001
 }
 
 function improve(guess: number, x: number): number {

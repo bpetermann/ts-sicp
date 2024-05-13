@@ -1,4 +1,4 @@
-import { cubed } from '../../../utils'
+import { cube } from '../../../utils'
 
 function inc(k: number): number {
   return k + 1
@@ -24,5 +24,5 @@ function simpsons_rule_integral(f: (x: number) => number, a: number, b: number, 
 }
 
 test('1.29', () => {
-  expect(simpsons_rule_integral(cubed, 0, 1, 100)).toEqual(0.24999999999999992)
+  expect(simpsons_rule_integral(cube, 0, 1, 100)).toEqual(0.24999999999999992)
 })

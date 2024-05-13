@@ -10,7 +10,7 @@ export function square(x: number): number {
     Returns the cube of a number
     @param x number to cube
    */
-export function cubed(x: number): number {
+export function cube(x: number): number {
   return x * x * x
 }
 
