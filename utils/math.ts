@@ -106,14 +106,27 @@ export function is_prime(n: number): boolean {
   return n === smallest_divisor(n)
 }
 
+/**
+ * Returns the average of two given number.
+ * @param x — A numeric expression.
+ * @param y — A numeric expression.
+ */
 export function average(x: number, y: number): number {
   return (x + y) / 2
 }
 
+/**
+ * Returns the cosine of a number.
+ * @param x — A numeric expression that contains an angle measured in radians.
+ */
 export function math_cos(x: number): number {
   return Math.cos(x)
 }
 
+/**
+ * Returns the base 2 logarithm of a number.
+ * @param x — A numeric expression.
+ */
 export function math_log2(n: number): number {
   return Math.log2(n)
 }
