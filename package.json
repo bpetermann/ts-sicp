@@ -14,7 +14,7 @@
     "bookmark": "npm run build && node ./app/utils/bookmark.js",
     "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
-  "author": "",
+  "author": "bpetermann",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
