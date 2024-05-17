@@ -92,4 +92,26 @@ declare module 'sicp' {
    */
   type NestedPairs<T> = T extends [arg: infer U, ...rest: infer Rest] ? [U, NestedPairs<Rest>] : null
   export function list<T extends unknown[]>(...args: T): NestedPairs<T>
+
+  /**
+   * **primitive**; returns true if x is the empty list null,
+   * and false otherwise;
+   *
+   * Time: Theta(1) Theta(1)
+   *
+   * @param {NestedPairs<T>} x 	value 	given value
+   * @return {boolean}  whether x is null
+   */
+  export function is_null<T extends unknown[]>(...x: T): boolean
+
+  /**
+   * Returns the length of the list xs.
+   * Iterative process;
+   *
+   * Time: Theta(1) Theta(1)
+   *
+   * @param {NestedPairs<T>} xs given list
+   * @return {boolean}  length of xs
+   */
+  export function length<T extends unknown[]>(...xs: T): number
 }
