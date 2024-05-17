@@ -90,7 +90,7 @@ declare module 'sicp' {
    * @param {unknown[]} args - The given values.
    * @returns {NestedPairs<T>} A list containing all values in the given order.
    */
-  type NestedPairs<T> = T extends [arg: infer U, ...rest: infer Rest] ? [U, NestedPairs<Rest>] : null
+  type NestedPairs<T> = T extends [infer U, ...infer Rest] ? [U, NestedPairs<Rest>] : null
   export function list<T extends unknown[]>(...args: T): NestedPairs<T>
 
   /**
