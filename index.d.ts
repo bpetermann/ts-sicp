@@ -99,7 +99,7 @@ declare module 'sicp' {
    *
    * Time: Theta(1) Theta(1)
    *
-   * @param {NestedPairs<T>} x 	value 	given value
+   * @param {NestedPairs<T>} x value given value
    * @return {boolean}  whether x is null
    */
   export function is_null<T extends unknown[]>(...x: T): boolean
@@ -114,4 +114,18 @@ declare module 'sicp' {
    * @return {boolean}  length of xs
    */
   export function length<T extends unknown[]>(...xs: T): number
+
+  /**
+   * Returns a list that results from appending the list ys to the list xs.
+   * Iterative process; time: Theta(n), space: Theta(n),
+   * where n is the length of xs. In the result,
+   * null at the end of the first argument list is replaced by the second argument,
+   * regardless what the second argument consists of.
+   *
+   *
+   * @param {NestedPairs<T>} xs list given first list
+   * @param {NestedPairs<T>} ys list given second list
+   * @return {NestedPairs<T>}
+   */
+  export function append<T extends unknown[], U extends unknown[]>(xs: T, ys: U): [T, U]
 }
