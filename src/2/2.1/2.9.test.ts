@@ -14,13 +14,11 @@ export function mul_interval(x: Interval, y: Interval): Interval {
 }
 
 test('2.7', () => {
-  // Need to run test
   const interval_1 = make_interval(1, 2)
   const interval_2 = make_interval(3, 5)
   const interval_1_width = width_interval(interval_1)
   const interval_2_width = width_interval(interval_2)
 
   expect(width_interval(add_interval(interval_1, interval_2))).toEqual(interval_1_width + interval_2_width)
-
   expect(width_interval(mul_interval(interval_1, interval_2))).not.toEqual(interval_1_width + interval_2_width)
 })
