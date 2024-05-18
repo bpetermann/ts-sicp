@@ -135,10 +135,18 @@ declare module 'sicp' {
    * Iterative process; time: Theta(n) (apart from f), space: Theta(n) (apart from f),
    * where n is the length of xs.
    * f is applied element-by-element: map(f, list(1, 2)) results in list(f(1), f(2)).
+   *
    * @param {function} f function unary
    * @param {unknown[]} xs list	given list
-   * @return {unknown[]}
    *
    */
   export function map<T, U extends [T, U | [T, null] | null]>(f: (x: T) => T, xs: U): U
+
+  /**
+   * **primitive**; returns true if x is a pair and false otherwise; time: Theta(1)Theta(1).
+   * @param {unknown[]} x 	given value
+   * @return {boolean} whether x is a pair
+   *
+   */
+  export function is_pair(x: unknown[]): boolean
 }

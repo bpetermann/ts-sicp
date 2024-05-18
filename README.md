@@ -4,7 +4,7 @@ Repository to accompany me in my study of "Structure and Interpretation of Compu
 
 ## 🚀 Start
 
-For the 'sicp' package you will need node version 16, and yarn.
+For the `sicp` package you will need node version 16, and yarn.
 
 Switch to Node.js version v16.16.0
 
