@@ -90,6 +90,7 @@ declare module 'sicp' {
    * @param {unknown[]} args - The given values.
    * @returns {NestedPairs<T>} A list containing all values in the given order.
    */
+
   type NestedPairs<T> = T extends [infer U, ...infer Rest] ? [U, NestedPairs<Rest>] : null
   export function list<T extends unknown[]>(...args: T): NestedPairs<T>
 
@@ -99,7 +100,7 @@ declare module 'sicp' {
    *
    * Time: Theta(1) Theta(1)
    *
-   * @param {NestedPairs<T>} x value given value
+   * @param {unknown[]} x value given value
    * @return {boolean}  whether x is null
    */
   export function is_null<T extends unknown[]>(...x: T): boolean
@@ -110,7 +111,7 @@ declare module 'sicp' {
    *
    * Time: Theta(1) Theta(1)
    *
-   * @param {NestedPairs<T>} xs given list
+   * @param {unknown[]} xs given list
    * @return {boolean}  length of xs
    */
   export function length<T extends unknown[]>(...xs: T): number
@@ -123,9 +124,21 @@ declare module 'sicp' {
    * regardless what the second argument consists of.
    *
    *
-   * @param {NestedPairs<T>} xs list given first list
-   * @param {NestedPairs<T>} ys list given second list
-   * @return {NestedPairs<T>}
+   * @param {unknown[]} xs list given first list
+   * @param {unknown[]} ys list given second list
+   * @return {unknown[]}
    */
   export function append<T extends unknown[], U extends unknown[]>(xs: T, ys: U): [T, U]
+
+  /**
+   * Returns a list that results from list xs by element-wise application of unary function f.
+   * Iterative process; time: Theta(n) (apart from f), space: Theta(n) (apart from f),
+   * where n is the length of xs.
+   * f is applied element-by-element: map(f, list(1, 2)) results in list(f(1), f(2)).
+   * @param {function} f function unary
+   * @param {unknown[]} xs list	given list
+   * @return {unknown[]}
+   *
+   */
+  export function map<T, U extends [T, U | [T, null] | null]>(f: (x: T) => T, xs: U): U
 }

@@ -1,10 +1,11 @@
 import { head, is_null, list, pair, tail } from 'sicp'
+import { Pairs } from './2.17.test'
 
-type Nested<T> = [T, Nested<T> | null]
-
-function reverse<T>(items: Nested<T>): Nested<T> {
-  function reverse_iter(items: Nested<T>, result: Nested<T> | null): Nested<T> {
-    return is_null(items) ? (result as Nested<T>) : reverse_iter(tail(items) as Nested<T>, pair(head(items), result))
+function reverse<T extends number>(items: Pairs<T>): Pairs<T> {
+  function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
+    return is_null(items)
+      ? (result as Pairs<T>)
+      : reverse_iter(tail(items) as Pairs<T>, pair(head(items), result) as Pairs<T>)
   }
   return reverse_iter(items, list())
 }

@@ -1,9 +1,9 @@
 import { head, list, tail, length } from 'sicp'
 
-type Nested<T> = [T, Nested<T> | null]
+export type Pairs<T> = [T, Pairs<T> | [T, null] | null]
 
-function last_pair<T>(items: Nested<T>): number {
-  return length(items) === 1 ? (head(items) as number) : last_pair(tail(items) as Nested<T>)
+function last_pair<T extends number>(items: Pairs<T>): number {
+  return length(items) === 1 ? head(items) : last_pair(tail(items) as Pairs<T>)
 }
 
 test('2.17', () => {
