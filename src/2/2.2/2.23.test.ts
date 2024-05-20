@@ -1,9 +1,9 @@
 import { head, tail, display, list, length } from 'sicp'
-import { Pairs } from './2.17.test'
+import { NumList } from './2.17.test'
 
-function for_each<T extends number>(f: (x: number) => void, items: Pairs<T>): null {
+function for_each(f: (x: number) => void, items: NumList): null {
   f(head(items))
-  return length(items) === 1 ? null : for_each(f, tail(items) as Pairs<T>)
+  return length(items) === 1 ? null : for_each(f, tail(items) as NumList)
 }
 
 describe('2.23', () => {

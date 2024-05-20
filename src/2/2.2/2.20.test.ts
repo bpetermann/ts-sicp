@@ -1,5 +1,5 @@
 import { list, head, tail, is_null } from 'sicp'
-import { Pairs } from './2.17.test'
+import { NumList } from './2.17.test'
 
 type Curry = (x: number) => number | Curry
 
@@ -7,11 +7,11 @@ function plus_curried(x: number): (y: number) => number {
   return (y) => x + y
 }
 
-function brooks<T extends number>(f: Curry, items: Pairs<T>): Curry {
-  return is_null(items) ? f : brooks(f(head(items)) as Curry, tail(items as [T, Pairs<T>]))
+function brooks(f: Curry, items: NumList): Curry {
+  return is_null(items) ? f : brooks(f(head(items)) as Curry, tail(items as [number, NumList]))
 }
 
-function brooks_curried<T extends number>(items: [Curry, Pairs<T>]): Curry {
+function brooks_curried(items: [Curry, NumList]): Curry {
   return brooks(head(items), tail(items))
 }
 

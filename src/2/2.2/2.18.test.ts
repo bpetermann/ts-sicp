@@ -1,11 +1,11 @@
 import { head, is_null, list, pair, tail } from 'sicp'
-import { Pairs } from './2.17.test'
+import { NumList } from './2.17.test'
 
-function reverse<T extends number>(items: Pairs<T>): Pairs<T> {
-  function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
+function reverse(items: NumList): NumList {
+  function reverse_iter(items: NumList, result: NumList | null): NumList {
     return is_null(items)
-      ? (result as Pairs<T>)
-      : reverse_iter(tail(items) as Pairs<T>, pair(head(items), result) as Pairs<T>)
+      ? (result as NumList)
+      : reverse_iter(tail(items) as NumList, pair(head(items), result) as NumList)
   }
   return reverse_iter(items, list())
 }

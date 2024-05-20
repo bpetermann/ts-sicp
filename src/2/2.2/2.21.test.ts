@@ -1,13 +1,13 @@
 import { list, head, tail, is_null, pair, map } from 'sicp'
-import { Pairs } from './2.17.test'
+import { NumList } from './2.17.test'
 
-function square_list<T extends number>(items: Pairs<T>): Pairs<T> {
+function square_list(items: NumList): NumList {
   return is_null(items)
-    ? (null as unknown as Pairs<T>)
-    : (pair(head(items) * head(items), square_list(tail(items) as Pairs<T>)) as Pairs<T>)
+    ? (null as unknown as NumList)
+    : (pair(head(items) * head(items), square_list(tail(items) as NumList)) as NumList)
 }
 
-function square_list_2<T extends number>(items: Pairs<T>) {
+function square_list_2(items: NumList) {
   return map((x: number) => x * x, items)
 }
 

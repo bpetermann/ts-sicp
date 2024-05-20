@@ -1,7 +1,7 @@
 import { head, is_null, list, pair, tail, is_pair, append } from 'sicp'
-import { Pairs } from './2.17.test'
+import { Pairs, NumList } from './2.17.test'
 
-function reverse<T extends Pairs<number>>(items: Pairs<T>): Pairs<T> {
+function reverse<T extends NumList>(items: Pairs<T>): Pairs<T> {
   function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
     return is_null(items)
       ? (result as Pairs<T>)
@@ -10,7 +10,7 @@ function reverse<T extends Pairs<number>>(items: Pairs<T>): Pairs<T> {
   return reverse_iter(items, list())
 }
 
-function deep_reverse<T extends Pairs<number>>(items: Pairs<T>): Pairs<T> {
+function deep_reverse<T extends NumList>(items: Pairs<T>): Pairs<T> {
   function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
     return is_null(items)
       ? (result as Pairs<T>)

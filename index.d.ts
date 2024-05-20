@@ -91,7 +91,7 @@ declare module 'sicp' {
    * @returns {NestedPairs<T>} A list containing all values in the given order.
    */
 
-  type NestedPairs<T> = T extends [infer U, ...infer Rest] ? [U, NestedPairs<Rest>] : null
+  type NestedPairs<T extends unknown[]> = T extends [infer U, ...infer Rest] ? [U, NestedPairs<Rest>] : null
   export function list<T extends unknown[]>(...args: T): NestedPairs<T>
 
   /**
@@ -149,4 +149,12 @@ declare module 'sicp' {
    *
    */
   export function is_pair(x: unknown[]): boolean
+
+  /**
+   * checks whether a given value is a number. See also textbook example.
+   * @param {unknown} v	to be checked
+   * @return {boolean}  indicating whether the value is a number
+   *
+   */
+  export function is_number(v: unknown): boolean
 }
