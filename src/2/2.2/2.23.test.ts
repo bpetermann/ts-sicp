@@ -1,9 +1,9 @@
 import { head, tail, display, list, length } from 'sicp'
-import { NumList } from './2.17.test'
+import { List } from './2.17.test'
 
-function for_each(f: (x: number) => void, items: NumList): null {
-  f(head(items))
-  return length(items) === 1 ? null : for_each(f, tail(items) as NumList)
+function for_each(f: (x: number) => void, items: List): null {
+  f(head(items) as number)
+  return length(items) === 1 ? null : for_each(f, tail(items) as List)
 }
 
 describe('2.23', () => {

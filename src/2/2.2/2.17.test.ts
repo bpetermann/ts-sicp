@@ -1,10 +1,13 @@
 import { head, list, tail, length } from 'sicp'
 
-export type Pairs<T> = [T, Pairs<T> | [T, null] | null]
-export type NumList = Pairs<number>
+export type ListNode = number | null | List
+export type List = [ListNode, ListNode]
+export function as_list(x: unknown): List {
+  return x as unknown as List
+}
 
-function last_pair(items: NumList): number {
-  return length(items) === 1 ? head(items) : last_pair(tail(items) as NumList)
+function last_pair(items: List): number {
+  return length(items) === 1 ? (head(items) as number) : last_pair(tail(items) as List)
 }
 
 test('2.17', () => {

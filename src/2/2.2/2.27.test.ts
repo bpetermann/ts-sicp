@@ -1,25 +1,20 @@
 import { head, is_null, list, pair, tail, is_pair, append } from 'sicp'
-import { Pairs, NumList } from './2.17.test'
+import { List, ListNode, as_list } from './2.17.test'
 
-function reverse<T extends NumList>(items: Pairs<T>): Pairs<T> {
-  function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
-    return is_null(items)
-      ? (result as Pairs<T>)
-      : reverse_iter(tail(items) as Pairs<T>, pair(head(items), result) as Pairs<T>)
+function reverse(items: List): List {
+  function reverse_iter(items: List, result: List | ListNode): List {
+    return is_null(items) ? as_list(result) : reverse_iter(tail(items) as List, pair(head(items), result))
   }
   return reverse_iter(items, list())
 }
 
-function deep_reverse<T extends NumList>(items: Pairs<T>): Pairs<T> {
-  function reverse_iter(items: Pairs<T>, result: Pairs<T> | null): Pairs<T> {
+function deep_reverse(items: List): List {
+  function reverse_iter(items: List, result: List | ListNode): List {
     return is_null(items)
-      ? (result as Pairs<T>)
+      ? as_list(result)
       : is_pair(items)
-        ? (append(
-            deep_reverse(tail(items) as Pairs<T>),
-            pair(deep_reverse(head(items) as unknown as Pairs<T>), null)
-          ) as unknown as Pairs<T>)
-        : (items as Pairs<T>)
+        ? append(deep_reverse(tail(items) as List), pair(deep_reverse(head(items) as List), null))
+        : items
   }
   return reverse_iter(items, list())
 }

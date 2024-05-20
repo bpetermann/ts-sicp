@@ -1,8 +1,9 @@
 import { is_pair, list, map } from 'sicp'
 import { square } from '../../../utils'
+import { List, ListNode } from './2.17.test'
 
-type TreeNode = number | null | Tree
-type Tree = [TreeNode, TreeNode]
+type TreeNode = ListNode
+type Tree = List
 
 function is_num(x: TreeNode): x is number {
   return !is_pair(x)

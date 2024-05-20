@@ -1,14 +1,13 @@
 import { list, head, tail, is_null, pair, map } from 'sicp'
-import { NumList } from './2.17.test'
+import { List, as_list } from './2.17.test'
+import { square } from '../../../utils'
 
-function square_list(items: NumList): NumList {
-  return is_null(items)
-    ? (null as unknown as NumList)
-    : (pair(head(items) * head(items), square_list(tail(items) as NumList)) as NumList)
+function square_list(items: List): List {
+  return is_null(items) ? as_list(null) : pair(square(head(items) as number), as_list(square_list(tail(items) as List)))
 }
 
-function square_list_2(items: NumList) {
-  return map((x: number) => x * x, items)
+function square_list_2(items: List) {
+  return map((x: number) => x * x, items as never)
 }
 
 test('2.21', () => {

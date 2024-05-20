@@ -1,12 +1,8 @@
 import { is_null, is_pair, append, head, tail, list } from 'sicp'
-import { Pairs } from './2.17.test'
+import { List, as_list } from './2.17.test'
 
-function fringe<T extends Pairs<unknown[]>>(x: Pairs<T>): Pairs<unknown[]> {
-  return is_null(x)
-    ? (null as unknown as Pairs<unknown[]>)
-    : is_pair(x)
-      ? append(fringe(head(x) as unknown as Pairs<T>), fringe(tail(x) as Pairs<T>))
-      : list(x)
+function fringe(x: List): List {
+  return is_null(x) ? as_list(null) : is_pair(x) ? append(fringe(head(x) as List), fringe(tail(x) as List)) : list(x)
 }
 
 test('2.27', () => {

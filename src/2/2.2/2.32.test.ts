@@ -1,7 +1,5 @@
 import { append, head, is_null, list, map, tail } from 'sicp'
-
-type Pair = number | null | List
-type List = [Pair, Pair]
+import { List } from './2.17.test'
 
 function subsets(s: List): List {
   if (is_null(s)) {

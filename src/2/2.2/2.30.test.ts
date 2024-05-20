@@ -7,22 +7,22 @@ function is_num(x: Tree | number): x is number {
   return !is_pair(x)
 }
 
-function cast_as_tree(x: unknown): Tree {
+function as_tree(x: unknown): Tree {
   return x as unknown as Tree
 }
 
 function square_tree(tree: Tree): Tree {
   return is_null(tree)
-    ? cast_as_tree(null)
+    ? as_tree(null)
     : is_num(tree)
-      ? cast_as_tree(tree * tree)
+      ? as_tree(tree * tree)
       : pair(square_tree(head(tree) as Tree), square_tree(tail(tree) as Tree))
 }
 
 function square_tree_map(tree: Tree, scale: (x: number) => number): Tree {
   return map(
     (sub_tree: Tree | number) =>
-      !is_num(sub_tree) ? square_tree_map(cast_as_tree(sub_tree), scale) : cast_as_tree(scale(sub_tree)),
+      !is_num(sub_tree) ? square_tree_map(as_tree(sub_tree), scale) : as_tree(scale(sub_tree)),
     tree as never
   )
 }

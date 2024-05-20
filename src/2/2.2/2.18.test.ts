@@ -1,11 +1,9 @@
 import { head, is_null, list, pair, tail } from 'sicp'
-import { NumList } from './2.17.test'
+import { List, ListNode } from './2.17.test'
 
-function reverse(items: NumList): NumList {
-  function reverse_iter(items: NumList, result: NumList | null): NumList {
-    return is_null(items)
-      ? (result as NumList)
-      : reverse_iter(tail(items) as NumList, pair(head(items), result) as NumList)
+function reverse(items: List): List {
+  function reverse_iter(items: List, result: List | ListNode): List {
+    return is_null(items) ? (result as List) : reverse_iter(tail(items) as List, pair(head(items), result))
   }
   return reverse_iter(items, list())
 }
