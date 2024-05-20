@@ -12,6 +12,13 @@ declare module 'sicp' {
   export function display<T>(v: T, s?: string): T
 
   /**
+   *  Computes the square root of x.
+   * @param {number} x the given number
+   * @return {number} the square root of x
+   */
+  export function math_sqrt(x: number): number
+
+  /**
    * Returns a string that represents the value v,
    * using a notation that is is consistent with JSON,
    * but also displays undefined, NaN, Infinity, and function objects.
@@ -144,11 +151,11 @@ declare module 'sicp' {
 
   /**
    * **primitive**; returns true if x is a pair and false otherwise; time: Theta(1)Theta(1).
-   * @param {unknown[]} x 	given value
+   * @param {unknown} x given value
    * @return {boolean} whether x is a pair
    *
    */
-  export function is_pair(x: unknown[]): boolean
+  export function is_pair(x: unknown): boolean
 
   /**
    * checks whether a given value is a number. See also textbook example.
