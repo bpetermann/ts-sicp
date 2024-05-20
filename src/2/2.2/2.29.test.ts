@@ -1,7 +1,7 @@
 import { head, list, tail, is_number } from 'sicp'
 
-type Mobile = [Branch, [Branch, null]]
 type Branch = [number, [number | Mobile, null]]
+type Mobile = [Branch, [Branch, null]]
 
 function make_mobile(left: Branch, right: Branch): Mobile {
   return list(left, right)
