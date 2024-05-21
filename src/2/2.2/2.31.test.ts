@@ -20,7 +20,7 @@ function square_tree(tree: Tree): Tree {
   return tree_map(square, tree)
 }
 
-test('2.30', () => {
+test('2.31', () => {
   const squared_tree = square_tree(list(1, list(2, list(3, 4), 5), list(6, 7)))
 
   const expected = [

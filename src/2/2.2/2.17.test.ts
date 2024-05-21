@@ -2,6 +2,7 @@ import { head, list, tail, length } from 'sicp'
 
 export type ListNode = number | null | List
 export type List = [ListNode, ListNode]
+
 export function as_list(x: unknown): List {
   return x as unknown as List
 }

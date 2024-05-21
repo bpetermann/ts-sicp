@@ -1,11 +1,11 @@
 import { append, head, is_null, list, map, tail } from 'sicp'
-import { List } from './2.17.test'
+import { List, as_list } from './2.17.test'
 
 function subsets(s: List): List {
   if (is_null(s)) {
     return list(null)
   } else {
-    const rest = subsets(tail(s) as List)
+    const rest = subsets(as_list(tail(s)))
     return append(
       rest,
       map((x) => list(head(s), x), rest as never)
@@ -13,7 +13,7 @@ function subsets(s: List): List {
   }
 }
 
-test('2.30', () => {
+test('2.32', () => {
   expect(subsets(list(1, 2, 3))).toEqual([
     null,
     [
