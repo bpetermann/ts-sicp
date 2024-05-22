@@ -8,10 +8,10 @@ export function map(f: (x: number) => number, sequence: List): ListNode {
   return accumulate<ListNode>((x, y) => pair(f(x as number), y), null, sequence)
 }
 export function append(seq1: List, seq2: List): List {
-  return accumulate<List>(pair, seq1, seq2)
+  return accumulate(pair, seq1, seq2)
 }
 export function length(sequence: List): number {
-  return accumulate<number>((_, y) => 1 + y, 0, sequence)
+  return accumulate((_, y) => 1 + y, 0, sequence)
 }
 
 describe('2.33', () => {
