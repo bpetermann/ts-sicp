@@ -8,6 +8,6 @@ function horner_eval(x: number, coefficient_sequence: List): number {
   return accumulate((this_coeff, higher_terms) => sum(x * higher_terms, this_coeff), 0, coefficient_sequence)
 }
 
-describe('2.33', () => {
+describe('2.34', () => {
   expect(horner_eval(2, list(1, 3, 0, 5, 0, 1))).toEqual(79)
 })
