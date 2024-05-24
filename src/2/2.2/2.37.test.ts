@@ -1,7 +1,7 @@
 import { list, map, pair } from 'sicp'
 import { accumulate } from './2.33.test'
 import { accumulate_n } from './2.36.test'
-import { List, ListNode } from './2.17.test'
+import { List, ListNode, as_list } from './2.17.test'
 
 function plus(x: number, y: number): number {
   return x + y
@@ -25,10 +25,10 @@ function transpose(mat: List): List {
 
 function matrix_times_matrix(n: List, m: List): List {
   const cols = transpose(m)
-  return map((x) => map((y) => dot_product(x as List, y as List), cols as never), n as never)
+  return map((x) => map((y) => dot_product(as_list(x), as_list(y)), cols as never), n as never)
 }
 
-describe('2.36', () => {
+describe('2.37', () => {
   const v = list(10, 20, 30)
   const m1 = list(list(1, 2, 3), list(3, 5, 1), list(1, 1, 1))
   const m2 = list(list(1, 2, 3), list(4, 5, 6), list(7, 8, 9))
