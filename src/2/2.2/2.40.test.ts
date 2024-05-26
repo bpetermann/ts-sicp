@@ -15,7 +15,7 @@ export function flatmap<T>(f: (x: T) => T, seq: List): List {
   return accumulate<List>(append, as_list(null), map(f, seq as never))
 }
 
-function filter(predicate: (x: List) => boolean, sequence: List): List {
+export function filter(predicate: (x: List) => boolean, sequence: List): List {
   return is_null(sequence)
     ? as_list(null)
     : predicate(as_list(head(sequence)))
