@@ -1,10 +1,10 @@
 ## SICP TS
 
-Repository to accompany me in my study of "Structure and Interpretation of Computer Programs, JavaScript Edition"
+Repository to accompany me in my study of "Structure and Interpretation of Computer Programs, JavaScript Edition". The answers to the exercises are written in TS, but are by no means complete, as some questions are difficult to summarize in tests
 
 ## 🚀 Start
 
-For the `sicp` package you will need node version 16, and yarn.
+For the `sicp` package you will need node version 16, and yarn
 
 Switch to Node.js v16.16.0 using `nvm`
 
@@ -15,12 +15,12 @@ nvm use
 Switch to Node.js v16.16.0 using `n`
 
 ```js
-nvm use
+npm run use-node
 ```
 
 ## 🧪 Tests
 
-The following command executes all Jest test suites.
+The following command executes all Jest test suites
 
 ```js
 npm run test
