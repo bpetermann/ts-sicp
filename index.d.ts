@@ -159,9 +159,29 @@ declare module 'sicp' {
 
   /**
    * checks whether a given value is a number. See also textbook example.
-   * @param {unknown} v	to be checked
-   * @return {boolean}  indicating whether the value is a number
+   * @param {unknown} v - value	to be checked
+   * @return {boolean} indicating whether the value is a number
    *
    */
-  export function is_number(v: unknown): boolean
+  export function is_number(v: unknown): v is number
+
+  /**
+   * checks whether a given value is a string. See also textbook example.
+   * @param {unknwon} v - value to be checked
+   * @return {boolean} indicating whether the value is a string
+   */
+  export function is_string(v: unknown): v is string
+
+  /**
+   * Optional second argument. If present, displays the given string s,
+   * followed by a space character, followed by the value v in the console
+   * with error flag. If second argument not present, just displays the value v
+   * in the console with error flag. The evaluation of any call of error
+   * aborts the running program immediately. The notation used for the display
+   * of values is consistent with JSON, but also displays
+   * undefined, NaN, Infinity, and function objects.
+   * @param {unknwon} v - value to be displayed
+   * @param {string} s - string to be displayed, preceding v
+   */
+  export function error(v: unknown, s: string): void
 }

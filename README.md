@@ -1,6 +1,6 @@
 ## SICP TS
 
-Repository to accompany me in my study of "Structure and Interpretation of Computer Programs, JavaScript Edition". The answers to the exercises are written in TS, but are by no means complete, as some questions are difficult to summarize in tests
+Repository to accompany me in my study of "Structure and Interpretation of Computer Programs, JavaScript Edition". The answers to the exercises are written in TS, but are by no means complete, as some questions require an explanation rather than a test.
 
 ## 🚀 Start
 
