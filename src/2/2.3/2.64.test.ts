@@ -3,7 +3,7 @@ import { math_floor } from '../../../utils'
 import { Tree, make_tree } from './2.63.test'
 import { List } from '../2.2/2.17.test'
 
-function list_to_tree(elements: List): Tree {
+export function list_to_tree(elements: List): Tree {
   return head(partial_tree(elements, length(elements)))
 }
 

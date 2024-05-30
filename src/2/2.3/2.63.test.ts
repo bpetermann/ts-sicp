@@ -19,13 +19,13 @@ export function make_tree(entry: ListNode, left: ListNode, right: ListNode): Tre
   return list(entry, left, right)
 }
 
-function tree_to_list_1(tree: Tree): ListNode {
+export function tree_to_list_1(tree: Tree): ListNode {
   return is_null(tree)
     ? null
     : append(tree_to_list_1(left_branch(tree)) as Tree, pair(entry(tree), tree_to_list_1(right_branch(tree))))
 }
 
-function tree_to_list_2(tree: Tree): ListNode {
+export function tree_to_list_2(tree: Tree): ListNode {
   function copy_to_list(tree: Tree, result_list: ListNode): ListNode {
     return is_null(tree)
       ? result_list

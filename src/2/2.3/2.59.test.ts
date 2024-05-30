@@ -7,7 +7,7 @@ export function equal(xs: ListNode, ys: ListNode): boolean {
     : xs === ys
 }
 
-function is_element_of_set(x: ListNode, set: ListNode): boolean {
+export function is_element_of_set(x: ListNode, set: ListNode): boolean {
   return is_null(set) ? false : equal(x, head(as_list(set))) ? true : is_element_of_set(x, tail(as_list(set)))
 }
 
@@ -23,7 +23,7 @@ export function intersection_set(set1: List, set2: List): ListNode {
       : intersection_set(tail(set1) as List, set2)
 }
 
-function union_set(set1: List, set2: List): List {
+export function union_set(set1: List, set2: List): List {
   return is_null(set1) ? set2 : adjoin_set(head(set1), union_set(tail(set1) as List, set2))
 }
 
