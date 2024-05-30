@@ -1,9 +1,9 @@
 import { list, head, tail, is_null, pair, map } from 'sicp'
-import { List, as_list } from './2.17.test'
+import { List, ListNode, as_list } from './2.17.test'
 import { square } from '../../../utils'
 
-function square_list(items: List): List {
-  return is_null(items) ? as_list(null) : pair(square(head(items) as number), as_list(square_list(tail(items) as List)))
+function square_list(items: List): ListNode {
+  return is_null(items) ? null : pair(square(head(items) as number), as_list(square_list(tail(items) as List)))
 }
 
 function square_list_2(items: List) {

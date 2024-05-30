@@ -1,8 +1,12 @@
 import { is_null, is_pair, append, head, tail, list } from 'sicp'
-import { List, as_list } from './2.17.test'
+import { List, ListNode, as_list } from './2.17.test'
 
-function fringe(x: List): List {
-  return is_null(x) ? as_list(null) : is_pair(x) ? append(fringe(head(x) as List), fringe(tail(x) as List)) : list(x)
+function fringe(x: List): ListNode {
+  return is_null(x)
+    ? null
+    : is_pair(x)
+      ? append(as_list(fringe(head(x) as List)), as_list(fringe(tail(x) as List)))
+      : list(x)
 }
 
 test('2.27', () => {

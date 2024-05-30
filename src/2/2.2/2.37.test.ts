@@ -12,14 +12,14 @@ function times(x: number, y: number): number {
 }
 
 function dot_product(v: List, w: List): number {
-  return accumulate(plus, 0, accumulate_n(times, 1, list(v, w)))
+  return accumulate(plus, 0, accumulate_n(times, 1, list(v, w)) as List)
 }
 
 function matrix_times_vector(m: List, v: List) {
   return map((row) => dot_product(row as List, v), m as never)
 }
 
-function transpose(mat: List): List {
+function transpose(mat: List): ListNode {
   return accumulate_n<ListNode>(pair, null, mat)
 }
 

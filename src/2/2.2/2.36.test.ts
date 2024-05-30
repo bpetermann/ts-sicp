@@ -1,14 +1,14 @@
 import { head, is_null, list, map, pair, tail } from 'sicp'
 import { accumulate } from './2.33.test'
-import { List, as_list } from './2.17.test'
+import { List, ListNode, as_list } from './2.17.test'
 
 function plus(x: number, y: number): number {
   return x + y
 }
 
-export function accumulate_n<T>(op: (x: T, y: T) => T, init: T, seqs: List): List {
+export function accumulate_n<T>(op: (x: T, y: T) => T, init: T, seqs: List): ListNode {
   return is_null(head(seqs))
-    ? as_list(null)
+    ? null
     : (pair(
         accumulate(
           op,
