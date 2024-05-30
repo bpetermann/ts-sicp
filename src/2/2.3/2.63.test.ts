@@ -1,21 +1,21 @@
 import { head, tail, list, is_null, append, pair } from 'sicp'
 import { List, ListNode } from '../2.2/2.17.test'
 
-type Tree = [ListNode, List]
+export type Tree = [ListNode, List]
 
-function entry(tree: Tree): ListNode {
+export function entry(tree: Tree): ListNode {
   return head(tree)
 }
 
-function left_branch(tree: Tree): Tree {
+export function left_branch(tree: Tree): Tree {
   return head(tail(tree)) as Tree
 }
 
-function right_branch(tree: Tree): Tree {
+export function right_branch(tree: Tree): Tree {
   return head(tail(tail(tree)) as Tree) as Tree
 }
 
-function make_tree(entry: ListNode, left: ListNode, right: ListNode): Tree {
+export function make_tree(entry: ListNode, left: ListNode, right: ListNode): Tree {
   return list(entry, left, right)
 }
 
