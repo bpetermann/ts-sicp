@@ -29,4 +29,4 @@ npm run test
 ## 🔖 Current bookmark
 
 ➜ Index: https://sourceacademy.org/sicpjs/  
-➜ Bookmark: https://sourceacademy.org/sicpjs/2.3.2
+➜ Bookmark: https://sourceacademy.org/sicpjs/2.3.4
