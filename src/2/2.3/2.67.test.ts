@@ -18,7 +18,7 @@ export function make_leaf(symbol: string, weight: number): Leaf {
   return list('leaf', symbol, weight) as unknown as Leaf
 }
 
-function is_leaf(object: List): object is Leaf {
+export function is_leaf(object: List): object is Leaf {
   return head(object) === 'leaf'
 }
 function symbol_leaf(x: Leaf): string {

@@ -2,7 +2,7 @@ import { is_null, head, tail, pair, list, append, error } from 'sicp'
 import { Symbols, Tree, decode, make_code_tree, make_leaf, symbols } from './2.67.test'
 import { List, ListNode, as_list } from '../2.2/2.17.test'
 
-function encode(message: ListNode, tree: Tree): ListNode {
+export function encode(message: ListNode, tree: Tree): ListNode {
   return is_null(message)
     ? null
     : append(encode_symbol(head(message as List) as string, tree) as List, encode(tail(message as List), tree) as List)
