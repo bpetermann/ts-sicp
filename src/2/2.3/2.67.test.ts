@@ -1,25 +1,28 @@
 import { list, head, tail, append, error, is_null, pair } from 'sicp'
 import { List, ListNode, as_list } from '../2.2/2.17.test'
 
-type Tree = ['code_tree', [left_branch: Tree | Leaf, [right_branch: Tree | Leaf, [symbols: Symbols, weight: Weight]]]]
+export type Tree = [
+  'code_tree',
+  [left_branch: Tree | Leaf, [right_branch: Tree | Leaf, [symbols: Symbols, weight: Weight]]]
+]
 
 type Leaf = ['leaf', [symbol: Symbols, weight: Weight]]
 
 type Weight = [weight: number, null]
 
-type Symbols = ListNode
+export type Symbols = List
 
 type Bit = 0 | 1
 
 export function make_leaf(symbol: string, weight: number): Leaf {
-  return list('leaf', symbol, weight) as Leaf
+  return list('leaf', symbol, weight) as unknown as Leaf
 }
 
 function is_leaf(object: List): object is Leaf {
   return head(object) === 'leaf'
 }
 function symbol_leaf(x: Leaf): string {
-  return head(tail(x)) as string
+  return head(tail(x)) as unknown as string
 }
 
 function weight_leaf(x: Leaf): number {
@@ -34,25 +37,25 @@ export function right_branch(tree: Tree) {
   return head(tail(tail(tree)))
 }
 
-function symbols(tree: Leaf | Tree): Symbols {
+export function symbols(tree: Leaf | Tree): Symbols {
   return is_leaf(tree) ? list(symbol_leaf(tree)) : head(tail(tail(tail(tree))))
 }
 
-function weight(tree: Tree | Leaf): number {
+export function weight(tree: Tree | Leaf): number {
   return is_leaf(tree) ? weight_leaf(tree) : head(tail(tail(tail(tail(tree)))))
 }
 
-function make_code_tree(left: Tree | Leaf, right: Tree | Leaf): Tree {
+export function make_code_tree(left: Tree | Leaf, right: Tree | Leaf): Tree {
   return list(
     'code_tree',
     left,
     right,
-    append(as_list(symbols(left)), as_list(right)),
+    append(as_list(symbols(left)), as_list(symbols(right))),
     weight(left) + weight(right)
   ) as Tree
 }
 
-function decode(bits: List, tree: Tree): ListNode {
+export function decode(bits: List, tree: Tree): ListNode {
   function decode_1(bits: List, current_branch: Tree): ListNode {
     if (is_null(bits)) {
       return null
@@ -66,7 +69,7 @@ function decode(bits: List, tree: Tree): ListNode {
   return decode_1(bits, tree)
 }
 
-function choose_branch(bit: Bit, branch: Tree) {
+export function choose_branch(bit: Bit, branch: Tree) {
   return bit === 0 ? left_branch(branch) : bit === 1 ? right_branch(branch) : error(bit, 'bad bit -- choose_branch')
 }
 

@@ -183,5 +183,5 @@ declare module 'sicp' {
    * @param {unknwon} v - value to be displayed
    * @param {string} s - string to be displayed, preceding v
    */
-  export function error(v: unknown, s: string): void
+  export function error(v: unknown, s?: string): void
 }

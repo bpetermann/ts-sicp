@@ -26,6 +26,28 @@ The following command executes all Jest test suites
 npm run test
 ```
 
+## 🔖 Update bookmark
+
+Updates the link to the sourceacademy website
+
+```js
+npm run bookmark <path segment(e.g. 2.3.4)>
+```
+
+## 🔖 Update bookmark
+
+Updates the link to the sourceacademy website
+
+```js
+npm run bookmark <path segment(e.g. 2.3.4)>
+```
+
+## 🔧 Run eslint
+
+```js
+npm run format
+```
+
 ## 🔖 Current bookmark
 
 ➜ Index: https://sourceacademy.org/sicpjs/  
