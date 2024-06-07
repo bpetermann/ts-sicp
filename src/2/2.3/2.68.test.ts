@@ -1,6 +1,6 @@
 import { is_null, head, tail, pair, list, append, error } from 'sicp'
 import { Symbols, Tree, decode, make_code_tree, make_leaf, symbols } from './2.67.test'
-import { List, ListNode } from '../2.2/2.17.test'
+import { List, ListNode, as_list } from '../2.2/2.17.test'
 
 function encode(message: ListNode, tree: Tree): ListNode {
   return is_null(message)
@@ -18,7 +18,7 @@ function encode_symbol(symbol: string, tree: Tree): List | void {
           : pair(0, null)
         : (pair(1, iterate(symbol, tail(symbols) as List)) as List)
   }
-  return iterate(symbol, symbols(tree)) as List
+  return as_list(iterate(symbol, symbols(tree)))
 }
 
 const sample_tree = make_code_tree(

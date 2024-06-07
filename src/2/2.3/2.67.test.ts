@@ -6,7 +6,7 @@ export type Tree = [
   [left_branch: Tree | Leaf, [right_branch: Tree | Leaf, [symbols: Symbols, weight: Weight]]]
 ]
 
-type Leaf = ['leaf', [symbol: Symbols, weight: Weight]]
+export type Leaf = ['leaf', [symbol: Symbols, weight: Weight]]
 
 type Weight = [weight: number, null]
 

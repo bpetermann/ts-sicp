@@ -40,7 +40,7 @@ npm run bookmark <path segment(e.g. 2.3.4)>
 npm run format
 ```
 
-## 🔖 Current bookmark
+## 📑 Current bookmark
 
 ➜ Index: https://sourceacademy.org/sicpjs/  
 ➜ Bookmark: https://sourceacademy.org/sicpjs/2.3.4
