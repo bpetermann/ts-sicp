@@ -54,34 +54,31 @@ const lyrics = list(
   'BOOM'
 )
 
+export function encode_symbol(symbol: string, tree: Tree): ListNode | void {
+  function contains_symbol(symbol: string, current_tree: Tree): boolean {
+    return !is_null(member(symbol, symbols(current_tree)))
+  }
+
+  if (is_leaf(tree)) {
+    return null
+  } else {
+    const left_tree = left_branch(tree) as Tree
+    const right_tree = right_branch(tree) as Tree
+    return contains_symbol(symbol, left_tree)
+      ? (pair(0, encode_symbol(symbol, left_tree)) as List)
+      : contains_symbol(symbol, right_tree)
+        ? (pair(1, encode_symbol(symbol, right_tree)) as List)
+        : error('symbol not found -- encode_symbol')
+  }
+}
+
+export function encode(message: ListNode, tree: Tree): ListNode {
+  return is_null(message)
+    ? null
+    : append(encode_symbol(head(message as List) as string, tree) as List, encode(tail(message as List), tree) as List)
+}
+
 describe('2.70', () => {
-  function encode_symbol(symbol: string, tree: Tree): ListNode | void {
-    function contains_symbol(symbol: string, current_tree: Tree): boolean {
-      return !is_null(member(symbol, symbols(current_tree)))
-    }
-
-    if (is_leaf(tree)) {
-      return null
-    } else {
-      const left_tree = left_branch(tree) as Tree
-      const right_tree = right_branch(tree) as Tree
-      return contains_symbol(symbol, left_tree)
-        ? (pair(0, encode_symbol(symbol, left_tree)) as List)
-        : contains_symbol(symbol, right_tree)
-          ? (pair(1, encode_symbol(symbol, right_tree)) as List)
-          : error('symbol not found -- encode_symbol')
-    }
-  }
-
-  function encode(message: ListNode, tree: Tree): ListNode {
-    return is_null(message)
-      ? null
-      : append(
-          encode_symbol(head(message as List) as string, tree) as List,
-          encode(tail(message as List), tree) as List
-        )
-  }
-
   const tree = generate_huffman_tree(sample_frequencies)
 
   expect(length(encode(lyrics, tree))).toEqual(84)
