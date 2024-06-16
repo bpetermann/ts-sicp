@@ -29,6 +29,17 @@ declare module 'sicp' {
   export function stringify(v: unknown): string
 
   /**
+   * computes the arc tangent of the quotient y / x of the arguments y and x,
+   * where the signs of y and x are used to determine the quadrant of the result.
+   * Note that it is intentional and traditional for the two-argument arc tangent
+   * function that the argument named y be first and the argument named x be second.
+   * The result is expressed in radians and ranges from -π to +π.
+   * @param {number} y - given first number
+   * @param {number} x - given second number
+   */
+  export function math_atan2(y: number, x: number): number
+
+  /**
    * Given zero or more numbers, returns the largest of them.
    * If no arguments are given, the result is -∞.
    * If any value is NaN, the result is NaN.
@@ -69,7 +80,7 @@ declare module 'sicp' {
   export function pair<T, U>(x: T, y: U): [T, U]
 
   /**
-   * Returns head (first component) of given pair p.
+   * Returns head (first component) of iven value p.
    *
    * Time: Theta(1) Theta(1)
    *
@@ -151,7 +162,7 @@ declare module 'sicp' {
 
   /**
    * **primitive**; returns true if x is a pair and false otherwise; time: Theta(1)Theta(1).
-   * @param {unknown} x given value
+   * @param {unknown} x - given value
    * @return {boolean} whether x is a pair
    *
    */
@@ -184,4 +195,50 @@ declare module 'sicp' {
    * @param {string} s - string to be displayed, preceding v
    */
   export function error(v: unknown, s?: string): void
+
+  /**
+   *  calls the function f with arguments given in list xs.
+   *
+   * For example:
+   *
+   * function times(x, y) {
+   *  return x * y;
+   * }
+   *
+   * apply_in_underlying_javascript(times, list(2, 3));
+   *
+   * returns 6
+   *
+   *  @param {Function} f - function to be applied
+   *  @param {Array} xs - arguments given in list
+   */
+  export function apply_in_underlying_javascript<T>(f: (xs: T[]) => T, xs: T[]): T
+
+  /**
+   * checks whether a given value is the special value undefined
+   *  @param {unknown} v - value to be checked
+   */
+  export function is_undefined(v: unknown): v is undefined
+
+  /**
+   * changes the pair p such that its tail is x.
+   *  @param {unknown[]} p - given pair
+   *  @param {unknown} v - given value
+   */
+
+  export function set_tail(p: unknown[], v: unknown): undefined
+
+  /**
+   * Returns true if both have the same structure with respect to pair,
+   * and identical values at corresponding leave positions (places that are not themselves pairs),
+   * and false otherwise. For the "identical", the values need to have the same type, otherwise
+   * the result is false. If corresponding leaves are boolean values, these values need to be the same.
+   * If both are undefined or both are null, the result is true.
+   * Otherwise they are compared with === (using the definition of === in the respective Source language in use).
+   *
+   *  @param {unknown} x- given value
+   *  @param {unknown} y - given value
+   */
+
+  export function equal(x: unknown, y: unknown): boolean
 }
