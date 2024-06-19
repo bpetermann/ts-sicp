@@ -236,7 +236,7 @@ declare module 'sicp' {
    * If both are undefined or both are null, the result is true.
    * Otherwise they are compared with === (using the definition of === in the respective Source language in use).
    *
-   *  @param {unknown} x- given value
+   *  @param {unknown} x - given value
    *  @param {unknown} y - given value
    */
 
