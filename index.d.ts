@@ -29,6 +29,28 @@ declare module 'sicp' {
   export function stringify(v: unknown): string
 
   /**
+   * Computes the sine of x. The argument is expressed in radians.
+   * @param {number} x - the given number
+   * @returns the sine of x
+   */
+  export function math_sin(x: number): number
+
+  /**
+   * Computes the cosine of x. The argument is expressed in radians.
+   * @param {number} x - given number
+   * @returns - cosine of x
+   */
+  export function math_cos(x: number): number
+
+  /**
+   * computes the arc tangent of x. The result is expressed
+   * in radians and ranges from -π / 2 to +π / 2.
+   * @param {number} x - given number
+   * @returns arc tangent of x
+   */
+  export function math_atan(x: number): number
+
+  /**
    * computes the arc tangent of the quotient y / x of the arguments y and x,
    * where the signs of y and x are used to determine the quadrant of the result.
    * Note that it is intentional and traditional for the two-argument arc tangent

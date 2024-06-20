@@ -35,11 +35,11 @@ function make_product(m1: ListNode, m2: ListNode): List {
   return list('*', m1, m2)
 }
 
-function addend(operands: List): ListNode {
+export function addend(operands: List): ListNode {
   return head(operands)
 }
 
-function augend(operands: List): ListNode {
+export function augend(operands: List): ListNode {
   return head(tail(operands as List) as List)
 }
 
@@ -59,7 +59,7 @@ function assoc(key: ListNode, records: List): ListNode | undefined {
       : assoc(key, tail(records) as List)
 }
 
-function make_table() {
+export function make_table() {
   const local_table = list('*table*')
   function lookup(key_1: string, key_2: string) {
     const subtable = assoc(key_1, tail(local_table) as unknown as List)
@@ -89,9 +89,11 @@ function make_table() {
   return dispatch
 }
 
+export type GET = (key_1: string, key_2: ListNode) => (operands: List, variable: string) => List
+export type PUT = <T>(key_1: string, key_2: ListNode, value: (x: T, y: string) => T) => void
 const operation_table = make_table()
-const get = operation_table('lookup') as (key_1: string, key_2: ListNode) => (operands: List, variable: string) => List
-const put = operation_table('insert') as <T>(key_1: string, key_2: ListNode, value: (x: T, y: string) => T) => void
+const get = operation_table('lookup') as GET
+const put = operation_table('insert') as PUT
 
 function deriv_sum(operands: List, variable: string): List {
   return make_sum(deriv(addend(operands), variable), deriv(augend(operands), variable))
