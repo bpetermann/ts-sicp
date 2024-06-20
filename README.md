@@ -55,4 +55,4 @@ npm run format
 ## 📑 Current bookmark
 
 ➜ Index: https://sourceacademy.org/sicpjs/  
-➜ Bookmark: https://sourceacademy.org/sicpjs/2.5.1
+➜ Bookmark: https://sourceacademy.org/sicpjs/2.5.2
