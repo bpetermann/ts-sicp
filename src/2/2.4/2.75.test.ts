@@ -16,11 +16,16 @@ import {
 } from 'sicp'
 import { square } from '../../../utils'
 
-type Dispatch = (op: string) => number | void
-type ListNode = number | null | List | string | Dispatch
-type List = [ListNode, ListNode]
+export type Dispatch = (op: string) => number | void
+export type ListNode = number | null | List | string | Dispatch
+export type List = [ListNode, ListNode]
+export type Functions =
+  | ((z: List) => number)
+  | ((r: number, a: number) => List)
+  | ((x: List, y: List) => List)
+  | ((x: number) => number)
 
-function make_from_real_imag(x: number, y: number): Dispatch {
+export function make_from_real_imag(x: number, y: number): Dispatch {
   function dispatch(op: string) {
     return op === 'real_part'
       ? x
@@ -35,7 +40,7 @@ function make_from_real_imag(x: number, y: number): Dispatch {
   return dispatch
 }
 
-function make_from_mag_ang(r: number, a: number): Dispatch {
+export function make_from_mag_ang(r: number, a: number): Dispatch {
   function dispatch(op: string) {
     return op === 'real_part'
       ? r * math_cos(a)
@@ -50,21 +55,21 @@ function make_from_mag_ang(r: number, a: number): Dispatch {
   return dispatch
 }
 
-function apply_generic(op: string, arg: List): number {
+export function apply_generic(op: string, arg: List): number {
   return (head(arg) as Dispatch)(op) as number
 }
-function real_part(z: Dispatch) {
+export function real_part(z: Dispatch) {
   return apply_generic('real_part', list(z))
 }
-function imag_part(z: Dispatch) {
+export function imag_part(z: Dispatch) {
   return apply_generic('imag_part', list(z))
 }
 
-function add_complex(z1: Dispatch, z2: Dispatch) {
+export function add_complex(z1: Dispatch, z2: Dispatch) {
   return make_from_real_imag(real_part(z1) + real_part(z2), imag_part(z1) + imag_part(z2))
 }
 
-function assoc(key: ListNode, records: List): ListNode | undefined {
+export function assoc(key: ListNode, records: List): ListNode | undefined {
   return is_null(records)
     ? undefined
     : equal(key, head(head(records) as List) as string)
@@ -102,26 +107,23 @@ export function make_table() {
   return dispatch
 }
 
-const operation_table = make_table()
-const put = operation_table('insert') as (
-  key_1: string,
-  key_2: ListNode,
-  value: ((z: List) => number) | ((r: number, a: number) => List) | ((x: List, y: List) => List)
-) => void
+export const operation_table = make_table()
+export const put = operation_table('insert') as (key_1: string, key_2: ListNode, value: Functions) => void
+export const get = operation_table('lookup') as (key_1: string, key_2: string) => Functions
 
-function attach_tag(type_tag: string, contents: ListNode): List {
+export function attach_tag(type_tag: string, contents: ListNode): List {
   return pair(type_tag, contents)
 }
 
-export function type_tag(datum: List): string | void {
-  return is_pair(datum) ? (head(datum) as string) : error(datum, 'bad tagged datum -- type_tag')
+export function type_tag(datum: List): List | void {
+  return is_pair(datum) ? (head(datum) as List) : error(datum, 'bad tagged datum -- type_tag')
 }
 
-export function contents(datum: List): List | void {
-  return is_pair(datum) ? (tail(datum) as List) : error(datum, 'bad tagged datum -- contents')
+export function contents(datum: List): ListNode | void {
+  return is_pair(datum) ? (tail(datum) as ListNode) : error(datum, 'bad tagged datum -- contents')
 }
 
-function install_rectangular_package() {
+export function install_rectangular_package() {
   function real_part(z: List): number {
     return head(z) as number
   }
@@ -153,7 +155,7 @@ function install_rectangular_package() {
 }
 
 install_rectangular_package()
-function install_polar_package() {
+export function install_polar_package() {
   function magnitude(z: List): number {
     return head(z) as number
   }

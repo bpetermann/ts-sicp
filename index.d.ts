@@ -234,7 +234,7 @@ declare module 'sicp' {
    *  @param {Function} f - function to be applied
    *  @param {Array} xs - arguments given in list
    */
-  export function apply_in_underlying_javascript<T>(f: (xs: T[]) => T, xs: T[]): T
+  export function apply_in_underlying_javascript<T>(f: (x: T, y?: T | T) => T, xs: T): T
 
   /**
    * checks whether a given value is the special value undefined
